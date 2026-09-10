@@ -44,19 +44,55 @@
 
 // export default App;
 
+// -----------------------------------------------------------------------------
+
+// import 'react-native-gesture-handler';
+// import React from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { SafeAreaProvider } from 'react-native-safe-area-context';
+// import { StatusBar, useColorScheme } from 'react-native';
+// import BottomTabs from './src/navigation/BottomTabs';
+
+// export default function App() {
+//   const isDarkMode = useColorScheme() === 'dark';
+//   return (
+//     <SafeAreaProvider>
+//       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+//       <NavigationContainer>
+//         <BottomTabs />
+//       </NavigationContainer>
+//     </SafeAreaProvider>
+//   );
+// }
+
+// -----------------------------------------------------------------------------
+
 import 'react-native-gesture-handler';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme, Theme } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar, useColorScheme } from 'react-native';
 import BottomTabs from './src/navigation/BottomTabs';
+
+const AppTheme: Theme = {
+  ...DefaultTheme,
+  dark: true,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#111111',
+    card: '#111111',
+    text: '#FFFFFF',
+    border: '#111111',
+    primary: '#FFFFFF',
+  },
+};
 
 export default function App() {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NavigationContainer>
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'}/>
+      <NavigationContainer theme={AppTheme}>
         <BottomTabs />
       </NavigationContainer>
     </SafeAreaProvider>

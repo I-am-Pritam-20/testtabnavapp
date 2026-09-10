@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CustomFloatingTabBar from '../components/CustomFloatingTabBar';
+import CustomFloatingTabBar from '../components/CustomFloatingTabBarPill';
 import { HomeStack, SearchStack, AccountStack, SettingsStack } from './Stacks';
 
 const Tab = createBottomTabNavigator();
@@ -8,7 +8,10 @@ const Tab = createBottomTabNavigator();
 export default function BottomTabs() {
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false }}
+      screenOptions={{ 
+        headerShown: false,
+        sceneStyle: { backgroundColor: '#111111'} 
+      }}
       tabBar={props => <CustomFloatingTabBar {...props} />}
     >
       <Tab.Screen name="Home" component={HomeStack} />

@@ -12,7 +12,11 @@ const SearchStackNav = createNativeStackNavigator();
 const AccountStackNav = createNativeStackNavigator();
 const SettingsStackNav = createNativeStackNavigator();
 
-const screenOptions = { headerShown: false } as const;
+const screenOptions = {
+  headerShown: false,
+  contentStyle: { backgroundColor: '#111111' },
+  animation: 'fade' as const,
+} as const;
 
 export function HomeStack() {
   return (
